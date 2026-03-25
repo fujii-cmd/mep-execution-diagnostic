@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TORUS | MEP実行診断</title>
+  <meta name="description" content="TORUSによるMEP実行診断の公式ポータル。空調・給排水衛生・電気を横断し、診断から改修計画まで接続します。" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap');
+    :root{--bg:#f4f7fb;--panel:#fff;--line:#d9e2ec;--text:#18202c;--muted:#5a6878;--accent:#12355b;--accent2:#1d66b2;--soft:#eaf2fb;--soft2:#eff5fb;--ok:#0f6a3f;--warn:#8a5a00;--shadow:0 16px 40px rgba(18,53,91,.08);--r:20px;--max:1180px}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:linear-gradient(180deg,#f6f9fc 0%,#eef3f8 100%);color:var(--text);font-family:'Noto Sans JP',sans-serif;line-height:1.8}
+    a{color:var(--accent2);text-decoration:none} img{max-width:100%;display:block}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+    .topbar{position:sticky;top:0;z-index:20;background:rgba(246,249,252,.88);backdrop-filter:blur(10px);border-bottom:1px solid rgba(18,53,91,.08)}
+    .topbar-in{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:76px}.brand{display:flex;align-items:center;gap:14px}.brand img{width:182px;height:auto}
+    .nav{display:flex;align-items:center;gap:16px;flex-wrap:wrap}.nav a{font-weight:700;color:var(--accent)}.nav .cta{padding:12px 16px;background:var(--accent);color:#fff;border-radius:999px}
+    .hero{padding:72px 0 48px}.hero-grid{display:grid;grid-template-columns:1.35fr .8fr;gap:28px;align-items:start}.eyebrow{display:inline-flex;align-items:center;gap:10px;padding:8px 12px;border-radius:999px;background:var(--soft);color:var(--accent);font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+    h1,h2,h3,h4{line-height:1.3;margin:0} h2{font-size:48px;margin-top:18px;margin-bottom:18px;letter-spacing:-.02em} .lead{font-size:18px;color:var(--muted);max-width:780px}
+    .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 18px;border-radius:14px;border:1px solid var(--line);font-weight:800;background:#fff;color:var(--accent)}.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+    .note,.side-card,.card,.contact{background:var(--panel);border:1px solid rgba(18,53,91,.08);box-shadow:var(--shadow);border-radius:var(--r)} .note{margin-top:20px;padding:16px 18px;color:var(--muted);background:linear-gradient(180deg,#fff,#f9fbfe)} .side-card{padding:22px}.metric{display:grid;gap:12px;margin-top:14px}.item{padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--soft2)}.k{font-size:12px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.08em}.v{font-weight:700;color:var(--accent);margin-top:4px}
+    section{padding:34px 0}.section-head{margin-bottom:18px}.num{font-size:12px;color:var(--accent2);font-weight:800;text-transform:uppercase;letter-spacing:.08em}.section-head h3{font-size:32px;margin-top:6px}.section-head p{color:var(--muted);max-width:880px}
+    .grid-3,.grid-2{display:grid;gap:18px}.grid-3{grid-template-columns:repeat(3,1fr)}.grid-2{grid-template-columns:repeat(2,1fr)}.card{padding:22px}.card h4{font-size:20px;margin-bottom:8px}.card p{color:var(--muted);margin:0}.list{margin:0;padding-left:20px;color:var(--muted)}
+    .band{background:#12355b;color:#fff;padding:44px 0;margin-top:18px}.band h3{font-size:30px}.band p{color:rgba(255,255,255,.82);max-width:900px}.band-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}.band-item{padding:18px;border:1px solid rgba(255,255,255,.14);border-radius:16px;background:rgba(255,255,255,.06)}
+    .contact-wrap{display:grid;grid-template-columns:1fr .95fr;gap:18px;align-items:start}.contact{padding:24px} label{display:block;font-weight:700;margin-bottom:6px} input,textarea,select{width:100%;padding:14px 14px;border:1px solid var(--line);border-radius:12px;font:inherit;background:#fff} textarea{min-height:150px;resize:vertical}.field{margin-bottom:14px}.small{font-size:13px;color:var(--muted)}
+    footer{padding:26px 0 48px;color:var(--muted)} .footer-box{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:18px}
+    @media (max-width:980px){.hero-grid,.contact-wrap,.grid-3,.grid-2,.band-grid{grid-template-columns:1fr}.topbar{position:static}.nav{display:none}h2{font-size:38px}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-in">
+      <a class="brand" href="#top" aria-label="TORUS home">
+        <img src="assets/torus-logo.svg" alt="TORUS" />
+      </a>
+      <nav class="nav">
+        <a href="#concept">思想</a>
+        <a href="#process">進め方</a>
+        <a href="#modules">診断領域</a>
+        <a href="#contact">参加・問い合わせ</a>
+        <a href="members/" class="cta">メンバー詳細版へ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">TORUS 最初の公式サイト / MEP実行診断</span>
+          <h2>壊れているかではなく、<br>機能しているかを診る。</h2>
+          <p class="lead">MEP実行診断は、老朽化把握にとどまらず、性能・運用・制御まで含めて建物を読み解き、そのまま改修方針・優先順位・発注支援へ接続する実務パッケージです。</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#contact">参加・問い合わせ</a>
+            <a class="btn" href="members/">メンバー用詳細版</a>
+            <a class="btn" href="reference/">統合版リファレンス</a>
+          </div>
+          <div class="note">この公開版は思想・価値・全体構造を前面に出し、詳細ロジックや運用深度はメンバー版へ接続する構成です。Netlify前提でそのまま公開できるよう、トップページは <strong>index.html</strong>、問い合わせは <strong>Netlify Forms</strong> で受ける設定にしています。</div>
+        </div>
+        <aside class="side-card">
+          <h3>このサイトの役割</h3>
+          <div class="metric">
+            <div class="item"><div class="k">対象</div><div class="v">TORUSメンバー / 賛同業者 / 発注者</div></div>
+            <div class="item"><div class="k">位置づけ</div><div class="v">思想サイト + 入口ポータル</div></div>
+            <div class="item"><div class="k">主領域</div><div class="v">空調 / 給排水衛生 / 電気</div></div>
+            <div class="item"><div class="k">到達点</div><div class="v">改修計画・設計・施工・運用へ接続</div></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="concept">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="num">01 Concept</div>
+          <h3>MEP実行診断とは何か</h3>
+          <p>一般的な劣化診断との差は、年数や更新時期だけでなく、実運転・制御成立・エネルギー・保全性まで踏み込むことにあります。</p>
+        </div>
+        <div class="grid-3">
+          <article class="card"><h4>老朽化診断で終わらない</h4><p>老朽化把握、性能低下把握、運用不全把握、改修方向整理までを一体で扱います。</p></article>
+          <article class="card"><h4>診断から改修へ直結</h4><p>診断結果を問題構造へ変換し、そのまま改修方針、概算比較、優先順位、発注支援へつなげます。</p></article>
+          <article class="card"><h4>設備を横断して診る</h4><p>空調だけでなく、給排水衛生と電気設備まで含め、建物全体の成立性を読むことを目的にしています。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="num">02 Process</div>
+          <h3>診断から改修計画までの流れ</h3>
+          <p>診断業務を単発調査で終わらせず、改修・設計・施工・維持管理へ接続することがTORUSの基本姿勢です。</p>
+        </div>
+        <div class="grid-2">
+          <article class="card"><h4>診る</h4><p>現地確認、ヒアリング、図面照合、計測、制御確認、保守状況確認を通じ、設備の実行性能を把握します。</p></article>
+          <article class="card"><h4>解く</h4><p>問題を劣化・制御・容量・運用・保全性の構造に分解し、改善ポイントと改修方針を整理します。</p></article>
+          <article class="card"><h4>比べる</h4><p>最低限改修、標準改修、最適改修の3案比較を行い、CAPEX・OPEX・施工性・継続運用性を評価します。</p></article>
+          <article class="card"><h4>つなぐ</h4><p>改修計画、概算、設計条件整理、発注支援、施工フェーズの判断材料まで接続します。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="modules">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="num">03 Modules</div>
+          <h3>診断領域</h3>
+          <p>MEPを縦割りで見ず、相互影響を踏まえて横断診断します。</p>
+        </div>
+        <div class="grid-3">
+          <article class="card"><h4>空調</h4><p>ΔT、実COP、ポンプ電力、ファン電力、制御、バルブ、搬送、熱源と末端の成立性を診ます。</p></article>
+          <article class="card"><h4>給排水衛生</h4><p>滞留、デッドレグ、温度帯、循環、衛生リスク、運用状態を見て、LRI等の判断へつなげます。</p></article>
+          <article class="card"><h4>電気</h4><p>幹線・盤・負荷・電源品質・保守性・設備更新性を見て、改修時の成立性と優先順位を整理します。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="value">
+      <div class="wrap">
+        <h3>TORUSが目指すもの</h3>
+        <p>MEP実行診断は単なる調査メニューではなく、建物の医療OSの入口です。診断→改修→設計→施工→維持→再診断の循環をつくり、実務と知見を蓄積し続けます。</p>
+        <div class="band-grid">
+          <div class="band-item"><strong>現場に強い</strong><br>机上評価だけでなく、実測・運用・制御を扱う。</div>
+          <div class="band-item"><strong>改修に強い</strong><br>診断結果がそのまま改修計画・発注支援に接続する。</div>
+          <div class="band-item"><strong>標準化に強い</strong><br>案件を通じて診断フレームと判断軸を蓄積する。</div>
+          <div class="band-item"><strong>仲間づくりに強い</strong><br>技術思想を公開し、賛同者と案件を集める。</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap contact-wrap">
+        <div>
+          <div class="section-head">
+            <div class="num">04 Contact</div>
+            <h3>参加・協業・問い合わせ</h3>
+            <p>Netlifyで受信できるフォームを実装しています。公開後は、提出内容がNetlifyの管理画面に蓄積されます。</p>
+          </div>
+          <form name="mep-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact">
+            <input type="hidden" name="form-name" value="mep-contact" />
+            <p hidden>
+              <label>Do not fill this out: <input name="bot-field" /></label>
+            </p>
+            <div class="field">
+              <label for="name">お名前</label>
+              <input id="name" name="name" type="text" required />
+            </div>
+            <div class="field">
+              <label for="company">会社名・組織名</label>
+              <input id="company" name="company" type="text" />
+            </div>
+            <div class="field">
+              <label for="email">メールアドレス</label>
+              <input id="email" name="email" type="email" required />
+            </div>
+            <div class="field">
+              <label for="topic">お問い合わせ種別</label>
+              <select id="topic" name="topic">
+                <option>診断の相談</option>
+                <option>協業・参加希望</option>
+                <option>講演・説明依頼</option>
+                <option>その他</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="message">内容</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+            <button class="btn primary" type="submit">送信する</button>
+            <p class="small">送信先はNetlify Formsです。通知先メールアドレスはNetlify管理画面で設定してください。</p>
+          </form>
+        </div>
+        <aside class="contact">
+          <h4>GitHub + Netlify での運用前提</h4>
+          <div class="metric">
+            <div class="item"><div class="k">公開ページ</div><div class="v">/index.html</div></div>
+            <div class="item"><div class="k">メンバー版</div><div class="v">/members/index.html</div></div>
+            <div class="item"><div class="k">統合版</div><div class="v">/reference/index.html</div></div>
+            <div class="item"><div class="k">フォーム</div><div class="v">Netlify Forms 対応</div></div>
+          </div>
+          <p class="small" style="margin-top:14px">必要に応じて、NetlifyのPassword ProtectionやMembers機能、Basic認証代替手段、Cloudflare Access等でメンバー版のアクセス制御を追加できます。</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-box">
+      <div>© TORUS / MEP実行診断</div>
+      <div><a href="members/">メンバー用詳細版</a> ・ <a href="reference/">統合版リファレンス</a></div>
+    </div>
+  </footer>
+</body>
+</html>

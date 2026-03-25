@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" role="img" aria-labelledby="title desc">
+  <title id="title">TORUS</title>
+  <desc id="desc">Bold torus-inspired logo mark and wordmark</desc>
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#12355b"/>
+      <stop offset="100%" stop-color="#1a5fa8"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(8 12)">
+    <path d="M56 12c26 0 44 14 44 34S82 80 56 80 12 66 12 46 30 12 56 12zm0 16c-16 0-28 8-28 18s12 18 28 18 28-8 28-18-12-18-28-18z" fill="url(#g)"/>
+    <circle cx="56" cy="46" r="11" fill="#fff"/>
+    <g fill="#12355b" font-family="Arial, Helvetica, sans-serif" font-weight="700">
+      <text x="118" y="56" font-size="42" letter-spacing="4">TORUS</text>
+      <text x="119" y="82" font-size="12" letter-spacing="2.5">MEP EXECUTION DIAGNOSTICS</text>
+    </g>
+  </g>
+</svg>

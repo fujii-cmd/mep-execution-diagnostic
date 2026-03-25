@@ -1,0 +1,12 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/members"
+  to = "/members/"
+  status = 301
+
+[[redirects]]
+  from = "/reference"
+  to = "/reference/"
+  status = 301
