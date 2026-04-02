@@ -2,61 +2,58 @@
   publish = "."
 
 [[redirects]]
+  from = "/diagnostics/air"
+  to = "/diagnostics/air/"
+  status = 301
+[[redirects]]
   from = "/diagnostics/air/dt"
   to = "/diagnostics/air/dt/"
   status = 301
-
 [[redirects]]
   from = "/diagnostics/air/fan"
   to = "/diagnostics/air/fan/"
   status = 301
-
-[[redirects]]
-  from = "/diagnostics/air"
-  to = "/diagnostics/air/"
-  status = 301
-
-[[redirects]]
-  from = "/diagnostics/sanitary/hotwater"
-  to = "/diagnostics/sanitary/hotwater/"
-  status = 301
-
 [[redirects]]
   from = "/diagnostics/sanitary"
   to = "/diagnostics/sanitary/"
   status = 301
-
+[[redirects]]
+  from = "/diagnostics/sanitary/hotwater"
+  to = "/diagnostics/sanitary/hotwater/"
+  status = 301
 [[redirects]]
   from = "/diagnostics/electrical"
   to = "/diagnostics/electrical/"
   status = 301
-
 [[redirects]]
   from = "/energy-data-architecture"
   to = "/energy-data-architecture/"
   status = 301
-
 [[redirects]]
   from = "/system-map"
   to = "/system-map/"
   status = 301
-
 [[redirects]]
   from = "/tag-dictionary"
   to = "/tag-dictionary/"
   status = 301
-
 [[redirects]]
   from = "/energy-survey"
   to = "/energy-survey/"
   status = 301
-
 [[redirects]]
   from = "/nwc"
   to = "/nwc/"
   status = 301
-
 [[redirects]]
   from = "/poc"
   to = "/poc/"
+  status = 301
+[[redirects]]
+  from = "/members"
+  to = "/members/"
+  status = 301
+[[redirects]]
+  from = "/what-is-mep-execution-diagnostics"
+  to = "/what-is-mep-execution-diagnostics/"
   status = 301
