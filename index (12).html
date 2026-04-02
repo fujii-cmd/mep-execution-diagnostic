@@ -1,0 +1,50 @@
+    <!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>空調ファン診断 実務ページ</title><style>
+:root{
+  --navy:#0f2744; --blue:#1b5fa7; --line:#d8e1eb; --bg:#f4f7fb; --card:#ffffff;
+  --text:#172334; --muted:#5c6a7c; --soft:#edf4ff; --ok:#edf8f0; --warn:#fff7ea;
+  --max:1180px; --radius:20px; --shadow:0 14px 36px rgba(15,39,68,.08);
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Yu Gothic",sans-serif;line-height:1.78}
+a{color:var(--blue);text-decoration:none}
+.wrap{width:min(var(--max),calc(100% - 32px));margin:0 auto}
+.hero{background:linear-gradient(135deg,#10233d 0%, #143b6b 100%);color:#fff;padding:52px 0 38px}
+.hero h1{margin:0 0 12px;font-size:clamp(30px,5vw,52px);line-height:1.12}
+.hero p{margin:0;color:rgba(255,255,255,.92);max-width:980px;font-size:17px}
+.badge{display:inline-block;padding:5px 10px;border:1px solid rgba(255,255,255,.22);border-radius:999px;margin-bottom:14px;font-size:12px;letter-spacing:.08em}
+nav.topnav{position:sticky;top:0;z-index:20;background:rgba(244,247,251,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav-inner{width:min(var(--max),calc(100% - 32px));margin:0 auto;display:flex;flex-wrap:wrap;gap:8px;padding:10px 0}
+.nav-inner a{display:inline-block;padding:7px 11px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--navy);font-size:13px}
+main{padding:24px 0 56px}
+.section{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px;margin:0 0 22px}
+h2{margin:0 0 14px;font-size:clamp(24px,3vw,34px);color:var(--navy)}
+h3{margin:0 0 8px;font-size:19px;color:var(--navy)}
+h4{margin:0 0 8px;font-size:16px;color:var(--navy)}
+p{margin:0 0 12px}.small{font-size:13px;color:var(--muted)}
+.grid-2,.grid-3,.grid-4{display:grid;gap:14px}
+.grid-2{grid-template-columns:repeat(2,1fr)} .grid-3{grid-template-columns:repeat(3,1fr)} .grid-4{grid-template-columns:repeat(4,1fr)}
+.card{border:1px solid var(--line);border-radius:14px;background:#fff;padding:16px}
+.band{background:var(--soft);border:1px solid #d7e6ff;border-radius:14px;padding:14px 16px}
+.ok{background:var(--ok);border:1px solid #cce2d2;border-radius:14px;padding:14px 16px}
+.warn{background:var(--warn);border:1px solid #f0d8a6;border-radius:14px;padding:14px 16px}
+.tags{margin-top:8px}
+.tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:4px 9px;margin:3px 6px 0 0;background:#fff;color:var(--navy);font-size:12px}
+.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:12px}
+.step{border:1px solid var(--line);border-radius:12px;background:#fff;padding:12px 10px;min-height:86px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:14px}
+table{width:100%;border-collapse:collapse;margin-top:10px;background:#fff;font-size:14px}
+th,td{border:1px solid var(--line);padding:10px 11px;text-align:left;vertical-align:top}
+th{background:#eef3f8;color:var(--navy);font-weight:700}
+ul{margin:10px 0 0 18px;padding:0} li{margin:4px 0}
+.footer{padding:0 0 44px;color:var(--muted);font-size:13px}
+.cta{display:inline-block;padding:11px 14px;border-radius:12px;border:1px solid var(--line);background:#fff;color:var(--navy);font-weight:700}
+.cta.primary{background:var(--navy);color:#fff;border-color:var(--navy)}
+@media(max-width:980px){.grid-2,.grid-3,.grid-4,.flow{grid-template-columns:1fr}.hero{padding:42px 0 32px}.section{padding:20px 18px}}
+</style></head><body>
+    <section class="hero"><div class="wrap"><div class="badge">Fan Diagnostics</div><h1>空調ファン診断 実務ページ</h1><p>空調のファン系を、VAV成立、フィルター目詰まり、ダクト圧損、風量不足・過大まで含めて診る実務ページ。</p></div></section>
+    <nav class="topnav"><div class="nav-inner"><a href="../">空調換気設備診断へ戻る</a><a href="../dt/">ΔT詳細</a><a href="../../../system-map/">System Map</a></div></nav>
+    <main class="wrap">
+<section class="section"><h2>何を診るか</h2><div class="grid-4"><div class="card"><h4>VAV成立</h4><p>風量が絞れているか、箱・制御・センサーが生きているか。</p></div><div class="card"><h4>フィルター目詰まり</h4><p>差圧上昇、アンペアメーターの針の振れ、風量低下。</p></div><div class="card"><h4>ダクト圧損</h4><p>竣工図からルート・抵抗を仮定し、定格風量が成立しているか診る。</p></div><div class="card"><h4>ファン搬送</h4><p>必要以上の静圧・風量・電力消費がないか。</p></div></div></section>
+<section class="section"><h2>実務で見る項目</h2><table><thead><tr><th>確認対象</th><th>見る内容</th><th>補助情報</th></tr></thead><tbody><tr><td>VAV</td><td>開度、差圧、風量、制御応答</td><td>室内温度、在室、設定値</td></tr><tr><td>フィルター</td><td>差圧上昇、風量低下、アンペア変動</td><td>保守履歴、交換履歴</td></tr><tr><td>ダクト</td><td>ルート、曲がり、分岐、圧損仮定</td><td>竣工図、定格風量</td></tr><tr><td>ファン</td><td>風量、静圧、電流 / 電力、周波数</td><td>設計値、インバータ周波数</td></tr></tbody></table></section>
+</main>
+    <div class="wrap footer">TORUS / 空調ファン診断 実務ページ</div></body></html>
